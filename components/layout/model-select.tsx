@@ -30,6 +30,7 @@ import { model as HuggingFaceModel } from '@/config/provider/huggingface';
 import { model as MistralModel } from '@/config/provider/mistral';
 import { model as OpenAIModel } from '@/config/provider/openai';
 import { model as PerplexityModel } from '@/config/provider/perplexity';
+import { model as VeniceModel } from '@/config/provider/venice';
 import store from '@/hooks/store';
 import { Model, SimpleModel } from '@/types/model';
 import { ProviderSetting } from '@/types/settings';
@@ -161,6 +162,14 @@ export const ModelSelect = () => {
                     setCurrentUseModel={handleModelChange}
                     currentProviderSettings={currentProviderSettings}
                     configured={process.env['NEXT_PUBLIC_ACCESS_PERPLEXITY'] == 'true'}
+                />
+                <ModelSelector
+                    label={Provider.Venice}
+                    models={VeniceModel}
+                    recentUsedModel={currentUseModel}
+                    setCurrentUseModel={handleModelChange}
+                    currentProviderSettings={currentProviderSettings}
+                    configured={process.env['NEXT_PUBLIC_ACCESS_VENICE'] == 'true'}
                 />
                 <DropdownMenuSeparator />
                 <CustomModelSelector

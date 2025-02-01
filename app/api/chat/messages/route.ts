@@ -54,6 +54,11 @@ const perplexity = new OpenAI({
     baseURL: process.env.PERPLEXITY_ENDPOINT ?? 'https://api.perplexity.ai/',
 });
 
+const venice = new OpenAI({
+    apiKey: process.env.VENICE_API_KEY ?? '',
+    baseURL: process.env.VENICE_ENDPOINT ?? 'https://api.venice.ai/api/v1',
+});
+
 export const runtime = 'edge';
 
 export const dynamic = 'force-dynamic';
@@ -177,6 +182,16 @@ export async function POST(req: Request) {
         }
         case Provider.Perplexity: {
             const response = await perplexity.chat.completions.create({
+                model: config.model.model_id,
+                stream: true,
+                max_tokens: 4096,
+                messages,
+            });
+            const output = OpenAIStream(response);
+            return new StreamingTextResponse(output);
+        }
+        case Provider.Venice: {
+            const response = await venice.chat.completions.create({
                 model: config.model.model_id,
                 stream: true,
                 max_tokens: 4096,
