@@ -87,6 +87,11 @@ export interface PerplexitySettings {
     endpoint?: string;
 }
 
+export interface VeniceSettings {
+    apiKey?: string;
+    endpoint?: string;
+}
+
 export type CustomSettings = SingleCustomSettings[];
 
 export interface SingleCustomSettings {
@@ -108,6 +113,7 @@ export interface ProviderSetting {
     [Provider.HuggingFace]?: HuggingFaceSettings;
     [Provider.Mistral]?: MistralSettings;
     [Provider.Perplexity]?: PerplexitySettings;
+    [Provider.Venice]?: VeniceSettings;
     [Provider.Custom]?: CustomSettings;
 }
 
@@ -123,4 +129,5 @@ export type SpecifiedProviderSetting =
     | HuggingFaceSettings
     | MistralSettings
     | PerplexitySettings
+    | VeniceSettings
     | SingleCustomSettings;

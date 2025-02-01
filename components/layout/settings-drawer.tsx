@@ -52,6 +52,7 @@ export const SettingsDrawer = () => {
     const [mistral, setMistral] = useState<ProviderSetting['Mistral'] | null>(currentProviderSettings?.Mistral || null);
     const [openAI, setOpenAI] = useState<ProviderSetting['OpenAI'] | null>(currentProviderSettings?.OpenAI || null);
     const [perplexity, setPerplexity] = useState<ProviderSetting['Perplexity'] | null>(currentProviderSettings?.Perplexity || null);
+    const [venice, setVenice] = useState<ProviderSetting['Venice'] | null>(currentProviderSettings?.Venice || null);
 
     const [custom, setCustom] = useState<ProviderSetting['Custom'] | null>(currentProviderSettings?.Custom || null);
 
@@ -100,6 +101,7 @@ export const SettingsDrawer = () => {
             Mistral: mistral!,
             OpenAI: openAI!,
             Perplexity: perplexity!,
+            Venice: venice!,
         });
 
         setCurrentSearchEngineSettings({
@@ -186,6 +188,8 @@ export const SettingsDrawer = () => {
                                     setMistral={setMistral}
                                     perplexity={perplexity}
                                     setPerplexity={setPerplexity}
+                                    venice={venice}
+                                    setVenice={setVenice}
                                     custom={custom}
                                     setCustom={setCustom}
                                 />

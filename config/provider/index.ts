@@ -9,6 +9,7 @@ import { HuggingFaceModelId, HuggingFaceModelName } from '@/config/provider/hugg
 import { MistralModelId, MistralModelName } from '@/config/provider/mistral';
 import { OpenAIModelId, OpenAIModelName } from '@/config/provider/openai';
 import { PerplexityModelId, PerplexityModelName } from '@/config/provider/perplexity';
+import { VeniceModelId, VeniceModelName } from '@/config/provider/venice';
 
 export type AllModelId =
     | AmazonModelId
@@ -21,7 +22,8 @@ export type AllModelId =
     | MistralModelId
     | GoogleModelId
     | OpenAIModelId
-    | PerplexityModelId;
+    | PerplexityModelId
+    | VeniceModelId;
 
 export type AllModelName =
     | AmazonModelName
@@ -34,7 +36,8 @@ export type AllModelName =
     | MistralModelName
     | GoogleModelName
     | OpenAIModelName
-    | PerplexityModelName;
+    | PerplexityModelName
+    | VeniceModelName;
 
 export enum Provider {
     Amazon = 'Amazon',
@@ -48,6 +51,7 @@ export enum Provider {
     HuggingFace = 'HuggingFace',
     Mistral = 'Mistral',
     Perplexity = 'Perplexity',
+    Venice = 'Venice',
 
     Custom = 'Custom',
 }
@@ -99,6 +103,10 @@ export const Providers: {
     {
         id: 'perplexity',
         name: Provider.Perplexity,
+    },
+    {
+        id: 'venice',
+        name: Provider.Venice,
     },
     {
         id: 'custom',

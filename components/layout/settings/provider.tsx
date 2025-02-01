@@ -14,6 +14,7 @@ import { HuggingFaceProvider } from '@/components/layout/settings/provider/huggi
 import { MistralProvider } from '@/components/layout/settings/provider/mistral';
 import { OpenAIProvider } from '@/components/layout/settings/provider/openai';
 import { PerplexityProvider } from '@/components/layout/settings/provider/perplexity';
+import { VeniceProvider } from '@/components/layout/settings/provider/venice';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/custom/select';
 import { Provider, Providers } from '@/config/provider';
 import { ProviderSetting } from '@/types/settings';
@@ -43,6 +44,8 @@ export const ProviderSettings = ({
     setOpenAI,
     perplexity,
     setPerplexity,
+    venice,
+    setVenice,
 
     custom,
     setCustom,
@@ -71,6 +74,8 @@ export const ProviderSettings = ({
     setOpenAI: (value: ProviderSetting['OpenAI'] | null) => void;
     perplexity: ProviderSetting['Perplexity'] | null;
     setPerplexity: (value: ProviderSetting['Perplexity'] | null) => void;
+    venice: ProviderSetting['Venice'] | null;
+    setVenice: (value: ProviderSetting['Venice'] | null) => void;
 
     custom: ProviderSetting['Custom'] | null;
     setCustom: (value: ProviderSetting['Custom'] | null) => void;
@@ -103,6 +108,8 @@ export const ProviderSettings = ({
                 return <OpenAIProvider openAI={openAI} setOpenAI={setOpenAI} />;
             case Provider.Perplexity:
                 return <PerplexityProvider perplexity={perplexity} setPerplexity={setPerplexity} />;
+            case Provider.Venice:
+                return <VeniceProvider venice={venice} setVenice={setVenice} />;
             case Provider.Custom:
                 return <CustomProvider custom={custom} setCustom={setCustom} />;
             default:
